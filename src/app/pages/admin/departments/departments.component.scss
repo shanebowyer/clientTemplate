@@ -1,0 +1,44 @@
+[admin-bar] {
+    height:             40px;
+    padding-top:        10px;
+    padding-bottom:     10px;
+    background-color:   #3F51B5;
+    .app-logo {
+        width:          40px;
+        float:          left;
+        cursor:         pointer;
+        margin-right:   15px;
+    }
+    .app-name {
+        color:          #FFF;
+        float:          left;
+        width:          250px;
+        height:         40px;
+        font-size:      16px;
+        line-height:    40px;
+    }
+    .container-layout {
+        position: relative;
+        [button-right] {
+            right:      15px;
+            position:   absolute;
+            mat-icon {
+                color: #FFF !important;
+            }
+        }
+    }
+}
+.create-department {
+    float: right;
+}
+[no-data] {
+    text-align:     center;
+    padding-top:    15px;
+}
+.departments-table-container {
+    margin-top:    15px;
+    margin-bottom: 15px;
+}
+.mat-column-options {
+  flex: 0 0 40px;
+}

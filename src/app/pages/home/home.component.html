@@ -1,0 +1,9 @@
+<div class="row-layout">
+    <div class="container-layout">
+        <div fxLayout="row">
+            <div fxFlex="20" *ngFor="let product of products">
+                <store-item [item]="product"></store-item>
+            </div>
+        </div>
+    </div>
+</div>

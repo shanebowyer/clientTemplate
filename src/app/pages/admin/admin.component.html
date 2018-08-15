@@ -1,0 +1,91 @@
+<spinner [(loading)]="loading" [(message)]="message"></spinner>
+
+<div class="row-layout" admin-bar>
+    <div class="container-layout">
+        <img class="app-logo" src="./assets/favicon.ico">
+        
+        <div class="app-name">
+            Shop Admin Panel
+        </div>
+
+        <div button-right>
+            <button mat-icon-button color="white" (click)="back()">
+                <mat-icon aria-label="Back To Store" matTooltip="Back To Store">
+                    arrow_back
+                </mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
+
+<mat-toolbar>
+    <div class="container-layout">
+        <span>
+            Access & Departments
+        </span>
+    </div>
+</mat-toolbar>
+
+<div class="row-layout">
+    <div class="container-layout">
+        <div fxLayout="row">
+            <div fxFlex="50" default-card-container>
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            Manage Departments
+                        </mat-card-title>
+
+                        <mat-card-subtitle>
+                            Control The Departments Shown In Store
+                        </mat-card-subtitle>
+                        
+                        <img mat-card-avatar src="./assets/department.png">
+                    </mat-card-header>
+                    <button mat-raised-button color="primary" (click)="OpenDepartmentManager()">
+                        Open Department Manager
+                    </button>
+                </mat-card>
+            </div>
+
+            <div fxFlex="50" default-card-container>
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            Manage Stores
+                        </mat-card-title>
+
+                        <mat-card-subtitle>
+                            Control Which Stores Have Access To Sell Their Products 
+                        </mat-card-subtitle>
+                        
+                        <img mat-card-avatar src="./assets/store.png">
+                    </mat-card-header>
+                    <button mat-raised-button color="primary" (click)="OpenStoreManager()">
+                        Open Store Manager
+                    </button>
+                </mat-card>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="50" default-card-container>
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            Manage Admins
+                        </mat-card-title>
+
+                        <mat-card-subtitle>
+                            Control Which Admins Have Access To Control The Store
+                        </mat-card-subtitle>
+                        
+                        <img mat-card-avatar src="./assets/admin.png">
+                    </mat-card-header>
+                    <button mat-raised-button color="primary" (click)="OpenAdminManager()">
+                        Open Admins
+                    </button>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+<spinner [(loading)]="loading" [(message)]="message"></spinner>
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>
+            Welcome to Genus!
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-horizontal-stepper #stepper linear="true">
+    <mat-step [stepControl]="inputRegistrationDetailsForm">
+        <form class="register" [formGroup]="inputRegistrationDetailsForm" (ngSubmit)="register(stepper)">
+            <ng-template matStepLabel>
+                Fill Out Your Details
+            </ng-template>
+
+            <image-upload [(image)]="image"></image-upload>
+            <div class="image-hint" *ngIf="!image && imageIssue">
+                You Need A Profile Picture
+            </div>
+
+            <mat-form-field>
+                <input type="email" class="lowercase" matInput placeholder="Email Address" formControlName="email" required>
+                <mat-error align="start" *ngIf="registrationDetailsFormErrors.email" class="form__error">
+                    {{ registrationDetailsFormErrors.email }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" class="capitalize" matInput placeholder="Name" formControlName="userName" required>
+                <mat-error align="start" *ngIf="registrationDetailsFormErrors.userName" class="form__error">
+                    {{ registrationDetailsFormErrors.userName }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" class="capitalize" matInput placeholder="Surname" formControlName="userSurname" required>
+                <mat-error align="start" *ngIf="registrationDetailsFormErrors.userSurname" class="form__error">
+                    {{ registrationDetailsFormErrors.userSurname }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" matInput placeholder="Mobile Number" formControlName="mobileNumber" required>
+                <mat-error align="start" *ngIf="registrationDetailsFormErrors.mobileNumber" class="form__error">
+                    {{ registrationDetailsFormErrors.mobileNumber }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="password" matInput placeholder="Password" formControlName="password" required>
+                <mat-hint>
+                    <b [ngClass]="passwordStrengthColor(inputRegistrationDetailsForm.value.password.length)">
+                        {{ passwordStrength(inputRegistrationDetailsForm.value.password.length) }}
+                    </b>
+                </mat-hint>
+                <mat-error align="start" *ngIf="registrationDetailsFormErrors.mobileNumber" class="form__error">
+                    {{ registrationDetailsFormErrors.mobileNumber }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="password" matInput placeholder="Confirm Password" formControlName="confirm" required>
+                <mat-hint *ngIf="inputRegistrationDetailsForm.value.password != inputRegistrationDetailsForm.value.confirm && inputRegistrationDetailsForm.value.confirm">
+                    <b class="weak">
+                        Your Password's Don't Match!
+                    </b>
+                </mat-hint>
+            </mat-form-field>
+        
+            <button type="submit" mat-raised-button color="primary">
+                Register
+            </button>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="varifyForm">
+        <form [formGroup]="varifyForm" (ngSubmit)="verify(stepper)">
+            <ng-template matStepLabel>
+                Verify Your Email Address
+            </ng-template>
+
+            <div class="icon-section">
+                <mat-icon color="primary">
+                    email
+                </mat-icon>    
+
+                <p>
+                    Please check your inbox. You code may have gone to spam.
+                </p>
+            </div>
+
+            <mat-form-field>
+                <input type="email" class="lowercase" matInput placeholder="Email Address" formControlName="email" required>
+                <mat-error align="start" *ngIf="varifyFormErrors.email" class="form__error">
+                    {{ varifyFormErrors.email }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="number" matInput placeholder="Verification Code" maxlength="6" formControlName="code" required>
+                <mat-error align="start" *ngIf="varifyFormErrors.code" class="form__error">
+                    {{ varifyFormErrors.code }}
+                </mat-error>
+            </mat-form-field>
+            
+            <button type="submit" mat-raised-button color="primary">
+                Verify
+            </button>
+        </form>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>
+            You Are Verified!
+        </ng-template>
+        
+        <form>
+            <div class="icon-section">
+                <mat-icon color="positive">
+                    check_circle
+                </mat-icon>
+
+                <p class="center">
+                   You are verified! Go to Login! 
+                </p>
+            </div>
+
+            <button mat-raised-button (click)="login()" color="primary">
+                Login
+            </button>
+        </form>
+    </mat-step>
+</mat-horizontal-stepper>

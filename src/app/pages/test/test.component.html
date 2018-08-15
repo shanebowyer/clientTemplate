@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <table border="1">
+        <th>
+            item
+        </th>
+        <th>
+            quantity
+        </th>
+        <tr *ngFor="let product of products">
+            <td>
+                {{ product.itemName }}
+            </td>
+            <td>
+                <input [(ngModel)]="product.quantity">
+            </td>
+        </tr>
+    </table>
+</div>
+
+<hr>
+
+<div class="container-fluid">
+
+    <img src="./assets/WaterDetect.png" />
+    
+    <form [formGroup]="payFastForm" (ngSubmit)="payFastForm.status == 'VALID' && submit()">
+        <mat-form-field>
+            <input type="text" name="item_name" matInput formControlName="item_name" placeholder="item_name" required>
+            <mat-error align="start" *ngIf="formErrors.item_name" class="form__error">
+                {{ formErrors.item_name }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" name="item_description" matInput formControlName="item_description" placeholder="item_description" required>
+            <mat-error align="start" *ngIf="formErrors.item_description" class="form__error">
+                {{ formErrors.item_description }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" name="name_first" matInput formControlName="name_first" placeholder="name_first" required>
+            <mat-error align="start" *ngIf="formErrors.name_first" class="form__error">
+                {{ formErrors.name_first }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" name="name_last" matInput formControlName="name_last" placeholder="name_last" required>
+            <mat-error align="start" *ngIf="formErrors.name_last" class="form__error">
+                {{ formErrors.name_last }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" name="email_address" matInput formControlName="email_address" placeholder="email_address" required>
+            <mat-error align="start" *ngIf="formErrors.email_address" class="form__error">
+                {{ formErrors.email_address }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" name="cell_number" matInput formControlName="cell_number" placeholder="cell_number" required>
+            <mat-error align="start" *ngIf="formErrors.cell_number" class="form__error">
+                {{ formErrors.cell_number }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" name="m_payment_id" matInput formControlName="m_payment_id" placeholder="m_payment_id" required>
+            <mat-error align="start" *ngIf="formErrors.m_payment_id" class="form__error">
+                {{ formErrors.m_payment_id }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" name="amount" matInput formControlName="amount" placeholder="amount" required>
+            <mat-error align="start" *ngIf="formErrors.amount" class="form__error">
+                {{ formErrors.amount }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" name="custom_str1" matInput formControlName="custom_str1" placeholder="custom_str1" required>
+            <mat-error align="start" *ngIf="formErrors.custom_str1" class="form__error">
+                {{ formErrors.custom_str1 }}
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary">
+            Buy
+        </button>
+    </form>
+</div>

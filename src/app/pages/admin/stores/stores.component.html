@@ -1,0 +1,125 @@
+<spinner [(loading)]="loading" [(message)]="message"></spinner>
+
+<div class="row-layout" admin-bar>
+    <div class="container-layout">
+        <img class="app-logo" src="./assets/favicon.ico">
+        
+        <div class="app-name">
+            Manage Stores
+        </div>
+
+        <div button-right>
+            <button mat-icon-button color="white" (click)="back()">
+                <mat-icon aria-label="Back To Admin Panel" matTooltip="Back To Admin Panel">
+                    arrow_back
+                </mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
+
+<mat-toolbar>
+    <div class="container-layout">
+        <button class="create-department" mat-raised-button color="positive" aria-label="Create Store" matTooltip="Create Store" (click)="OpenEditor('add')">
+            Create
+        </button>
+    </div>
+</mat-toolbar>
+
+<div class="row-layout">
+    <div class="container-layout">
+        <div fxFlex no-data *ngIf="stores.length == 0">
+            <mat-card>
+                No Stores Found!
+            </mat-card>
+        </div>
+
+        <div class="stores-table-container mat-elevation-z8" *ngIf="stores.length > 0">
+            <mat-table #mainDepartmentsTable [dataSource]="storesDataSource" matSort>
+                <ng-container matColumnDef="logo">
+                    <mat-header-cell *matHeaderCellDef>
+                        Logo
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <img class="store-logo" [src]="element.logo">
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Description
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        {{ element.description }}
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="storeId">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Store ID
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        # {{ element.storeId }}
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="options">
+                    <mat-header-cell *matHeaderCellDef>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Store Options" matTooltipPosition="left">
+                            <mat-icon aria-label="Store Options">more_vert</mat-icon>
+                        </button>
+
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="OpenViewer(element)" [disabled]="!(element.role >= 1)">
+                                <mat-icon>
+                                    assignment
+                                </mat-icon>
+                                <span>
+                                    View
+                                </span>
+                            </button>
+                            <button mat-menu-item (click)="OpenEditor('update', element)" [disabled]="!(element.role >= 2)">
+                                <mat-icon>
+                                    mode_edit
+                                </mat-icon>
+                                <span>
+                                    Edit
+                                </span>
+                            </button>
+                            <button mat-menu-item (click)="OpenShare(element)" [disabled]="!(element.role >= 4)">
+                                <mat-icon>
+                                    share
+                                </mat-icon>
+                                <span>
+                                    Share
+                                </span>
+                            </button>
+                            <mat-divider></mat-divider>
+                            <button mat-menu-item color="warn" (click)="OpenDelete(element)" [disabled]="!(element.role >= 4)">
+                                <mat-icon>
+                                    delete
+                                </mat-icon>
+                                <span>
+                                    Delete
+                                </span>
+                            </button>
+                            <button mat-menu-item color="warn" (click)="OpenUnsubscribe(element)" [disabled]="!(element.role >= 1)">
+                                <mat-icon>
+                                    remove_circle
+                                </mat-icon>
+                                <span>
+                                    Unsubscribe
+                                </span>
+                            </button>
+                        </mat-menu>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </div>
+    </div>
+</div>

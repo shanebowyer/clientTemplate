@@ -1,0 +1,33 @@
+<div class="share">
+    <label>
+        Share {{ data.description }}
+    </label>
+
+    <form [formGroup]="shareForm" (ngSubmit)="shareForm.status == 'VALID' && submit()">
+        <mat-form-field>
+            <input type="email" name="email" matInput formControlName="email" placeholder="Email" required>
+            <mat-error align="start" *ngIf="formErrors.email" class="form__error">
+                {{ formErrors.email }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select name="role" formControlName="role" placeholder="Role" required>
+                <mat-option *ngFor="let role of roles" [value]="role.value">
+                    {{ role.description }}
+                </mat-option>
+            </mat-select>
+            <mat-error align="start" *ngIf="formErrors.role" class="form__error">
+                {{ formErrors.role }}
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary">
+            Share
+        </button>
+
+        <button mat-raised-button color="warn" (click)="close()">
+            Close
+        </button>
+    </form>
+</div>

@@ -1,0 +1,22 @@
+mat-toolbar {
+    width:       calc(100% + 48px);
+    margin-top:  -24px;
+    margin-left: -24px;
+}
+.product-editor {
+    .image-container {
+        display:        block !important;
+        margin-left:    auto !important;
+        margin-right:   auto !important;
+        .image-required {
+            color:      red;
+            font-size:  10px;
+        }
+    }
+    .mat-column-options {
+        flex: 0 0 40px;
+    }
+    .mat-column-productId {
+        flex: 0 0 140px;
+    }
+}

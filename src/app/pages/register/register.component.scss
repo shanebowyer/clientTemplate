@@ -1,0 +1,67 @@
+mat-horizontal-stepper {
+    form {
+        width:              400px;
+        display:            block;
+        padding:            15px;
+        margin-left:        auto;
+        margin-right:       auto;
+        border-radius:      4px;
+        background-color:   #F5F5F5 !important;
+        mat-form-field {
+            width:  100%;
+        }
+        input.lowercase {
+            text-transform: lowercase;
+        }
+        input.capitalize {
+            text-transform: capitalize;
+        }
+        mat-hint {
+            width:      100%;
+            text-align: right;
+        }
+        b.weak {
+            color:          #F44336 !important;
+            text-transform: capitalize;
+        }
+        b.medium {
+            color:          #03A9F4 !important;
+            text-transform: capitalize;
+        }
+        b.strong {
+            color:          #FFC107 !important;
+            text-transform: capitalize;
+        }
+        b.verystrong {
+            color:          #4CAF50 !important;
+            text-transform: capitalize;
+        }
+        button {
+            width:      100%;
+            margin-top: 25px;
+        }
+    }
+    .icon-section {
+        width:      100%;
+        text-align: center;
+        mat-icon {
+            width:      100px;
+            height:     100px;
+            font-size:  100px;
+        }
+        p {
+            font-size:  18px;
+            text-align: justify;
+        }
+        p.center {
+           text-align: center;
+        }
+
+    }
+    .alldone {
+
+    }
+}
+.mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}

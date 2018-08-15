@@ -1,0 +1,30 @@
+[admin-bar] {
+    height:             40px;
+    padding-top:        10px;
+    padding-bottom:     10px;
+    background-color:   #3F51B5;
+    .app-logo {
+        width:          40px;
+        float:          left;
+        cursor:         pointer;
+        margin-right:   15px;
+    }
+    .app-name {
+        color:          #FFF;
+        float:          left;
+        width:          250px;
+        height:         40px;
+        font-size:      16px;
+        line-height:    40px;
+    }
+    .container-layout {
+        position: relative;
+        [button-right] {
+            right:      15px;
+            position:   absolute;
+            mat-icon {
+                color: #FFF !important;
+            }
+        }
+    }
+}

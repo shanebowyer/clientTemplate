@@ -1,0 +1,27 @@
+.not-found-top {
+    height:             50vh;
+    background-color:   #3F51B5;
+    img {
+        height:         20vh;
+        margin:         auto;
+        display:        block;
+        margin-top:     5vh;
+        margin-bottom:  5vh;
+    }
+    label {
+        color:      #FFF;
+        margin:     auto;
+        display:    block;
+        font-size:  48px;
+        text-align: center;
+    }
+}
+.not-found-bottom {
+    height:             50vh;
+    background-color:   #f5f5f5;
+    button {
+        margin:         auto;
+        display:        block;
+        margin-top:     15vh;
+    }
+}

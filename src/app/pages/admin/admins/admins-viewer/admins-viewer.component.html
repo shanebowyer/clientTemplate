@@ -1,0 +1,22 @@
+<div class="admins-viewer">
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="admin Id" [value]="admin.adminId" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" [value]="admin.email" disabled>
+        </mat-form-field>
+
+        <mat-selection-list disabled>
+            <mat-list-option *ngFor="let role of admin.roles" [selected]="role.value">
+                {{ role.description }}
+            </mat-list-option>
+        </mat-selection-list>
+        <br>
+    </form>
+
+    <button mat-raised-button color="warn" (click)="close()">
+        Close
+    </button>
+</div>

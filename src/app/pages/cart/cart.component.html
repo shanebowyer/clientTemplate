@@ -1,0 +1,128 @@
+<spinner [(loading)]="loading" [(message)]="message"></spinner>
+
+<div class="row-layout" admin-bar>
+    <div class="container-layout">
+        <img class="app-logo" src="./assets/favicon.ico">
+        
+        <div class="app-name">
+            Shopping Cart
+        </div>
+
+        <div button-right>
+            <button mat-icon-button color="white" (click)="back()">
+                <mat-icon aria-label="Back Home" matTooltip="Back Home">
+                    arrow_back
+                </mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row-layout" style="background-color: #F5F5F5;">
+    <div class="container-layout">
+        <mat-toolbar style="padding-left: 0px !important;padding-right: 0px !important;">
+            <button mat-raised-button color="primary" (click)="removeSelected()">
+                Remove Selected Items
+            </button>
+        </mat-toolbar>
+    </div>
+</div>
+
+<div class="container-layout space-top">
+    <div fxLayout="row">
+        <div fxFlex="74">
+            <mat-card style="margin: 0px !important;padding: 0px !important;">
+                <mat-table #mainAdminsTable [dataSource]="cartDataSource">
+                    <ng-container matColumnDef="select">
+                        <mat-header-cell *matHeaderCellDef>
+                            <mat-checkbox (change)="masterToggle()" [checked]="allSelected" color="primary"></mat-checkbox>
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            <mat-checkbox (click)="$event.stopPropagation()" (change)="checkSelected(element)" [checked]="element.selected" color="primary">
+                            </mat-checkbox>
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="description">
+                        <mat-header-cell *matHeaderCellDef>
+                            Item Description
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            {{ element.description }}
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="unitPrice">
+                        <mat-header-cell *matHeaderCellDef>
+                            Unit Price
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            <b>
+                                R {{ element.unitPrice }}
+                            </b>
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="quantity">
+                        <mat-header-cell *matHeaderCellDef>
+                            Quantity
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            <mat-form-field>
+                                <input type="number" matInput (change)="changeDetected()" [(ngModel)]="element.quantity" min="1" required>
+                            </mat-form-field>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+            </mat-card>
+        </div>
+
+        <div fxFlexOffset="2" fxFlex="25">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        <b>
+                            Cart Summary
+                        </b>
+                    </mat-card-title>
+                </mat-card-header>
+
+                <mat-divider></mat-divider>
+
+                <table class="cart-summary-table">
+                    <tr>
+                        <td>
+                            Sub Total
+                        </td>
+                        <td>
+                            R {{ getTotal() | number }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Delivery
+                        </td>
+                        <td>
+                            R 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Total
+                        </th>
+                        <th>
+                            R {{ getTotal() | number }}
+                        </th>
+                    </tr>
+                </table>
+
+                <button mat-raised-button color="positive" style="width: 100%;" (click)="checkout()">
+                    Proceed To Checkout
+                </button>
+            </mat-card>
+        </div>
+    </div>
+</div>

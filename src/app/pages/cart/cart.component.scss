@@ -1,0 +1,56 @@
+[admin-bar] {
+    height:             40px;
+    padding-top:        10px;
+    padding-bottom:     10px;
+    background-color:   #3F51B5;
+    .app-logo {
+        width:          40px;
+        float:          left;
+        cursor:         pointer;
+        margin-right:   15px;
+    }
+    .app-name {
+        color:          #FFF;
+        float:          left;
+        width:          250px;
+        height:         40px;
+        font-size:      16px;
+        line-height:    40px;
+    }
+    .container-layout {
+        position: relative;
+        [button-right] {
+            right:      15px;
+            position:   absolute;
+            mat-icon {
+                color: #FFF !important;
+            }
+        }
+    }
+}
+.space-top {
+    margin-top: 25px;
+}
+.mat-column-select {
+    flex:       0 0 40px;
+    overflow:   initial;
+}
+.mat-column-quantity {
+    flex: 0 0 60px;
+}
+.mat-column-unitPrice {
+    flex: 0 0 150px;
+}
+.cart-summary-table {
+    width: 100%;
+    th, td {
+        padding-top:    10px;
+        padding-bottom: 10px;
+    }
+    th:nth-child(1), td:nth-child(1) {
+        text-align: left;
+    }
+    th:nth-child(2), td:nth-child(2) {
+        text-align: right;
+    }
+}

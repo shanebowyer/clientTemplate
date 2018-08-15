@@ -1,0 +1,124 @@
+html, body * {
+    font-family:            Sans-serif;
+    user-select:            none;
+    -ms-user-select:        none;
+    -moz-user-select:       none;
+    -webkit-user-select:    none;
+}
+body {
+    margin: 0px !important;
+}
+[color="positive"] {
+    color: #4CAF50 !important;
+}
+button[link] {
+    color: #3F51B5 !important;
+}
+mat-toolbar[color="positive"],
+[mat-mini-fab][color="positive"],
+[mat-raised-button][color="positive"] {
+    color:              #FFF !important;
+    background-color:   #4CAF50 !important;
+}
+[mat-raised-button][color="positive"]:disabled {
+    background-color:   #81C784 !important;
+}
+[mat-menu-item][color="warn"] {
+    color: #F44336 !important;
+    mat-icon {
+        color: #F44336 !important;
+    }
+}
+[mat-menu-item]:disabled {
+    color: rgba(0,0,0,0.38) !important;
+    mat-icon {
+        color: rgba(0,0,0,0.38) !important;
+    }
+}
+[mat-menu-item][color="warn"]:disabled {
+    color: rgba(0,0,0,0.38) !important;
+    mat-icon {
+        color: rgba(0,0,0,0.38) !important;
+    }
+}
+[mat-button][color="link"] {
+    color: #2196F3 !important;
+    mat-icon {
+        color: transparent !important;
+    }
+}
+.mat-list .mat-list-item .mat-list-item-content-reverse, .mat-list .mat-list-option .mat-list-item-content-reverse, .mat-nav-list .mat-list-item .mat-list-item-content-reverse, .mat-nav-list .mat-list-option .mat-list-item-content-reverse, .mat-selection-list .mat-list-item .mat-list-item-content-reverse, .mat-selection-list .mat-list-option .mat-list-item-content-reverse {
+    background-color:   #FFF !important;
+}
+[spacer] {
+  flex: 1 1 auto;
+}
+.row-layout:before,
+.row-layout:after {
+    display: table !important;
+    content: " " !important;
+}
+.container-layout:after {
+    clear: both !important;
+}
+.container-layout {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+@media (min-width: 768px) {
+    .container-layout {
+        width: 750px !important;
+    }
+}
+@media (min-width: 992px) {
+    .container-layout {
+        width: 970px !important;
+    }
+}
+@media (min-width: 1250px) {
+    .container-layout {
+        width: 1200px !important;
+    }
+}
+@media (min-width: 1600px) {
+    .container-layout {
+        width: 1500px !important;
+    }
+}
+[default-card-container] {
+    padding-top:    15px;
+    padding-left:   5px;
+    padding-right:  5px;
+}
+.mat-pseudo-checkbox-checked {
+    background-color: #3F51B5 !important;
+}
+[secondary-bar] {
+    height:             40px;
+    padding-top:        10px;
+    padding-bottom:     10px;
+    background-color:   #EDEDED;
+    .app-logo {
+        width:          40px;
+        float:          left;
+        cursor:         pointer;
+        margin-right:   15px;
+    }
+    .app-name {
+        color:          #000;
+        float:          left;
+        width:          250px;
+        height:         40px;
+        font-size:      16px;
+        line-height:    40px;
+    }
+    .container-layout {
+        position: relative;
+        [button-right] {
+            right:      15px;
+            position:   absolute;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+<div class="department-editor">
+    <label>
+        {{ mode == 'add' ? "Add Department" :  "Edit Department" }}
+    </label>
+
+    <form [formGroup]="departmentEditorForm" (ngSubmit)="departmentEditorForm.status == 'VALID' && submit()">
+        <mat-form-field *ngIf="mode == 'add'">
+            <input type="text" name="departmentId" matInput formControlName="departmentId" placeholder="Department Id" required>
+            <mat-hint align="end">
+                {{ departmentEditorForm.value.departmentId?.length || 0 }}/24
+            </mat-hint>
+            <mat-error align="start" *ngIf="formErrors.departmentId" class="form__error">
+                {{ formErrors.departmentId }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" name="description" matInput formControlName="description" placeholder="Description" required>
+            <mat-error align="start" *ngIf="formErrors.description" class="form__error">
+                {{ formErrors.description }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select name="organizationOnly" formControlName="organizationOnly" placeholder="Sharing Rules" required>
+                <mat-option *ngFor="let rule of rules" [value]="rule.value">
+                    {{ rule.description }}
+                </mat-option>
+            </mat-select>
+            <mat-error align="start" *ngIf="formErrors.organizationOnly" class="form__error">
+                {{ formErrors.organizationOnly }}
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary">
+            {{ mode == 'add' ? "Create" :  "Update" }}
+        </button>
+
+        <button mat-raised-button color="warn" (click)="close()">
+            Close
+        </button>
+    </form>
+</div>

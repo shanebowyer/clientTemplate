@@ -1,0 +1,57 @@
+<div class="row-layout" main-bar *ngIf="showShopHeader()">
+    <div class="container-layout">
+        <img class="app-logo" src="./assets/favicon.ico" (click)="home()">
+        
+        <div class="app-name">
+            Shop
+        </div>
+
+        <button mat-button color="link" class="adminButton" *ngIf="showAdminConsole" (click)="OpenAdminConsole()">
+            Admin Console
+        </button>
+        
+        <div button-right>
+            <button mat-icon-button color="white" (click)="OpenStore()">
+                <mat-icon aria-label="Open Store" matTooltip="Open Store">
+                    store
+                </mat-icon>
+            </button>
+
+            <button mat-icon-button color="white" (click)="OpenWishList()">
+                <mat-icon aria-label="Wish List" matTooltip="Wish List">
+                    favorite
+                </mat-icon>
+            </button>
+
+            <button mat-icon-button color="white" matTooltip="Shopping Cart" (click)="OpenCart()">
+                <mat-icon aria-label="Open Shopping Cart">
+                    shopping_cart
+                </mat-icon>
+            </button>
+
+            <account-button></account-button>
+        </div>
+    </div>
+</div>
+
+<div class="row-layout" search-tool *ngIf="showShopHeader()">
+    <div class="container-layout">
+        <mat-form-field style="width: 250px;">
+            <mat-select [(ngModel)]="departments">
+                <mat-option [value]="1">
+                    Search All Departments
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="search" style="width: calc(100% - 350px)">
+            <input matInput value="Search">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">
+            Search
+        </button>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

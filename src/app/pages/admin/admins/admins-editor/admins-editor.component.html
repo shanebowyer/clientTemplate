@@ -1,0 +1,28 @@
+<div class="department-editor">
+    <label>
+        {{ mode == 'add' ? "Add Department" :  "Edit Department" }}
+    </label>
+
+    <div class="roles-list" *ngFor="let role of admin.roles" fxLayout="row">
+        <mat-checkbox [(ngModel)]="role.value" color="primary" fxFlex>
+            {{ role.description }}
+        </mat-checkbox>
+    </div>
+    
+    <form [formGroup]="adminEditorForm" (ngSubmit)="adminEditorForm.status == 'VALID' && submit()">
+        <mat-form-field>
+            <input type="email" name="email" matInput formControlName="email" placeholder="Email" required>
+            <mat-error align="start" *ngIf="formErrors.email" class="form__error">
+                {{ formErrors.email }}
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary">
+            {{ mode == 'add' ? "Create" :  "Update" }}
+        </button>
+
+        <button mat-raised-button color="warn" (click)="close()">
+            Close
+        </button>
+    </form>
+</div>

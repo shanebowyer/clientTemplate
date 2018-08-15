@@ -1,0 +1,24 @@
+<mat-card>
+    <div class="product-promotion">
+        SALE
+    </div>
+    <img mat-card-image [src]="item.mainImage">
+    <mat-card-content>
+        <p>
+            {{ item.title }}
+        </p>
+        <b>
+            R {{ item.price }}
+        </b>
+        <button mat-icon-button style="right: 55px;bottom: 10px;position: absolute;">
+            <mat-icon aria-label="Add to wishlist" matTooltip="Add to wishlist">
+                favorite
+            </mat-icon>
+        </button>
+        <button mat-icon-button style="right: 15px;bottom: 10px;position: absolute;" (click)="cart.addToCart(item)">
+            <mat-icon aria-label="Add to cart" matTooltip="Add to cart">
+                add_shopping_cart
+            </mat-icon>
+        </button>
+    </mat-card-content>
+</mat-card>

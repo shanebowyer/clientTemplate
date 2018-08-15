@@ -1,0 +1,19 @@
+.department-viewer * {
+    width: 100%;
+    label {
+        margin-bottom: 20px;
+    }
+    button {
+        margin-top: 20px;
+    }
+    .user-list-item {
+        .email {
+            flex:       0 0 1;
+            text-align: left;
+        }
+        .role {
+            flex:       0 0 1;
+            text-align: right;
+        }
+    }
+}

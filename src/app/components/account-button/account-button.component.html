@@ -1,0 +1,6 @@
+<button mat-icon-button color="white" [matTooltip]="loggedIn ? (user.userName ? user.userName : user.email) : 'Login'" (click)="submit(loggedIn)">
+    <mat-icon aria-label="Wish List" *ngIf="!user.profilePic">
+        account_circle
+    </mat-icon>
+    <img [src]="user.profilePic" *ngIf="user.profilePic">
+</button>

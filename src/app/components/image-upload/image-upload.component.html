@@ -1,0 +1,7 @@
+<label class="image-upload">
+    <mat-icon *ngIf="!image" color="primary" matTooltip="Click Here To Change Image!">
+        photo
+    </mat-icon>
+    <img src="{{ image }}" *ngIf="image" matTooltip="Click Here To Change Image!">
+    <input type="file" accept="image/*" id="file" (change)="handleFileInput($event.target.files)">
+</label>

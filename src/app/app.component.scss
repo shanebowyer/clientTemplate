@@ -1,0 +1,44 @@
+[main-bar] {
+    height:             40px;
+    padding-top:        10px;
+    padding-bottom:     10px;
+    background-color:   #3F51B5;
+    .app-logo {
+        width:          40px;
+        float:          left;
+        cursor:         pointer;
+        margin-right:   15px;
+    }
+    .app-name {
+        color:          #FFF;
+        float:          left;
+        width:          150px;
+        height:         40px;
+        font-size:      16px;
+        line-height:    40px;
+    }
+    .adminButton {
+        float:              left;
+        color:              #FFF !important;
+        margin-top:         2px;
+        text-decoration:    underline;
+    }
+    .container-layout {
+        position: relative;
+        [button-right] {
+            right:      15px;
+            position:   absolute;
+            mat-icon {
+                color: #FFF !important;
+            }
+        }
+    }
+}
+[search-tool] {
+    font-size:          14px;
+    padding-top:        5px;
+    background-color:   #EEEEEE;
+    [mat-raised-button] {
+        margin-left: 2px;
+    }
+}

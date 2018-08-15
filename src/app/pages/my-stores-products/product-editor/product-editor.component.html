@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+    <span>
+        {{ mode == 'add' ? 'Create Product' : 'Edit Product' }}
+    </span>
+</mat-toolbar>
+
+<div class="product-editor">
+    <div fxLayout="row">
+        <div class="image-container">
+            <image-upload [(image)]="image"></image-upload>
+            <div class="image-required" *ngIf="!image">
+                You need to select an image
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row">
+        <image-upload-multiple></image-upload-multiple>
+    </div>
+
+    <form [formGroup]="editorForm" (ngSubmit)="editorForm.status == 'VALID' && submit()">
+        <div fxLayout="row">
+            <mat-form-field fxFlex="33">
+                <input matInput name="title" placeholder="Title" formControlName="title" required>
+            </mat-form-field>
+
+            <mat-form-field fxFlexOffset="1.5" fxFlex="32">
+                <mat-select name="organizationOnly" placeholder="Sharing Rules" formControlName="organizationOnly" required>
+                    <mat-option *ngFor="let option of organizationOnly" [value]="option.value">
+                        {{ option.description }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlexOffset="1.5" fxFlex="32">
+                <span matPrefix>R&nbsp;</span>
+                <input type="number" matInput name="price" placeholder="Price" formControlName="price" min="0" required>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex>
+                <textarea matInput name="description" placeholder="Description" formControlName="description" required></textarea>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex>
+                <mat-select name="departments" placeholder="Departments" formControlName="departments" required multiple>
+                    <mat-option *ngFor="let department of departments" [value]="department.departmentId">
+                        {{ department.description }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <button type="button" mat-raised-button color="warn" (click)="close()" fxFlex="49">
+                Close
+            </button>
+
+            <button type="submit" mat-raised-button color="positive" fxFlexOffset="2" fxFlex="49">
+                {{ mode == 'add' ? 'Add' : 'Update' }}
+            </button>
+        </div>
+    </form>
+</div>

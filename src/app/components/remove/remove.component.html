@@ -1,0 +1,22 @@
+<div class="remove">
+    <form [formGroup]="removeForm" (ngSubmit)="removeForm.status == 'VALID' && submit()">
+        <mat-form-field>
+            <mat-select name="confirm" formControlName="confirm" placeholder="Delete {{ data.description }}" required>
+                <mat-option *ngFor="let o of options" [value]="o.value">
+                    {{ o.description }}
+                </mat-option>
+            </mat-select>
+            <mat-error align="start" *ngIf="formErrors.confirm" class="form__error">
+                {{ formErrors.confirm }}
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="warn" [disabled]="!removeForm.value.confirm">
+            Delete
+        </button>
+
+        <button type="button" mat-raised-button color="positive" (click)="close()">
+            Close
+        </button>
+    </form>
+</div>

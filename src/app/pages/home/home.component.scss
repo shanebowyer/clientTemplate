@@ -1,0 +1,15 @@
+.scroll-store-items {
+    padding-top:    15px;
+    padding-bottom: 15px;
+    header {
+        width: 100%;
+        .section-header {
+            float:          left;
+            font-size:      22px;
+            text-transform: capitalize;
+        }
+        button {
+            float: right;
+        }
+    }
+}

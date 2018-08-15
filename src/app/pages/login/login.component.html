@@ -1,0 +1,31 @@
+<spinner [(loading)]="loading" [(message)]="message"></spinner>
+
+<div class="login-container">
+    <mat-card>
+        <form #f="ngForm" (ngSubmit)="user.email && user.password && login()" novalidate>
+            <mat-form-field class="example-full-width">
+                <input type="email" name="email" matInput placeholder="Email" [(ngModel)]="user.email" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input type="password" name="password" matInput placeholder="Password" [(ngModel)]="user.password" required>
+            </mat-form-field>
+
+            <div class="forgot-password">
+                <span (click)="forgotPassword()">
+                    Forgot Password
+                </span>
+            </div>
+
+            <button type="submit" mat-raised-button color="primary">
+                Log In
+            </button>
+
+            <div class="spacer"></div>
+
+            <button type="button" mat-raised-button color="positive" (click)="OpenRegister()">
+                Register
+            </button>
+        </form>
+    </mat-card>
+</div>
